@@ -113,34 +113,8 @@
 
 
 
-                <customfonts.MyTextView_PTSans_Bold
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:lineSpacingExtra="-11sp"
-                    android:text="coming soon"
-                    android:textAllCaps="true"
-                    android:layout_marginTop="38dp"
-                    android:layout_marginLeft="17dp"
-                    android:textColor="#263238"
-                    android:textSize="15sp" />
-
-                <View
-                    android:layout_width="45dp"
-                    android:layout_height="4dp"
-                    android:layout_marginTop="7.5dp"
-                    android:layout_marginLeft="17dp"
-                    android:background="@drawable/gradient"/>
 
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/comingsoon_recycleview"
-                    android:clipToPadding="false"
-                    android:paddingTop="19dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                </androidx.recyclerview.widget.RecyclerView>
 
 
             </LinearLayout>

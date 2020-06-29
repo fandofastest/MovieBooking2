@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.source.MediaSource;
@@ -30,11 +31,12 @@ import java.util.ArrayList;
 import adapter.Cast_RecycleviewAdapter;
 import modalclass.CastModalClass;
 
-public class MovieInfoActivity extends AppCompatActivity {
+public class PlayerActivity extends AppCompatActivity {
 
-    ImageView imageView,poster;
+    ImageView imageView,imgposter;
     ImageButton playbutton;
-    String link;
+    String title,poster,url,cat,lang;
+    TextView tvjudul,tvcat,tvlang;
 
     private boolean playWhenReady = true;
     private int currentWindow = 0;
@@ -105,17 +107,32 @@ public class MovieInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        title = getIntent().getStringExtra("title");
+        poster = getIntent().getStringExtra("poster");
+        url=getIntent().getStringExtra("url");
+        lang=getIntent().getStringExtra("lang");
+        cat=getIntent().getStringExtra("cat");
+
+
+
 
 
         setContentView(R.layout.activity_movie_info);
 
-        link="http://aditv.onlivestreaming.net/aditv/livestream/playlist.m3u8";
 
         //Recycleview
+        tvjudul=findViewById(R.id.judul);
+        tvcat=findViewById(R.id.cat);
+        tvlang=findViewById(R.id.lang);
+        tvjudul.setText(title);
+        tvcat.setText(cat);
+        tvlang.setText(lang);
         playerView = findViewById(R.id.video_view);
         imageView=findViewById(R.id.imagebg);
         playbutton=findViewById(R.id.playbutton);
-        poster=findViewById(R.id.poster);
+        imgposter=findViewById(R.id.poster);
+        Glide.with(getApplicationContext()).load(poster).error(R.drawable.andhadhun).into(imageView);
+
 
         playbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -123,7 +140,7 @@ public class MovieInfoActivity extends AppCompatActivity {
                 playerView.setVisibility(View.VISIBLE);
                 imageView.setVisibility(View.GONE);
                 playbutton.setVisibility(View.GONE);
-                poster.setVisibility(View.GONE);
+                imgposter.setVisibility(View.GONE);
                 initializePlayer();
             }
         });
@@ -138,7 +155,7 @@ public class MovieInfoActivity extends AppCompatActivity {
     private void initializePlayer() {
         player = ExoPlayerFactory.newSimpleInstance(this);
         playerView.setPlayer(player);
-        Uri uri = Uri.parse(link);
+        Uri uri = Uri.parse(url);
         DataSource.Factory dataSourceFactory =
                 new DefaultHttpDataSourceFactory(Util.getUserAgent(this, "TV"));
         HlsMediaSource hlsMediaSource =

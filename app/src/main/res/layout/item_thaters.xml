@@ -5,8 +5,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:id="@+id/item"
     tools:ignore="ContentDescription"
-    android:layout_marginLeft="17dp">
+    android:layout_margin="17dp">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
@@ -15,11 +16,28 @@
         app:cardCornerRadius="7dp">
 
         <ImageView
+            android:layout_gravity="center"
             android:id="@+id/poster1"
-            android:layout_width="155dp"
-            android:layout_height="206dp"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
             android:scaleType="fitXY"
             android:src="@drawable/venomposter"/>
+
+<!--        <LinearLayout-->
+<!--            android:background="@color/colorBg"-->
+<!--            android:layout_width="155dp"-->
+<!--            android:layout_height="206dp">-->
+
+<!--            <ImageView-->
+<!--                android:layout_gravity="center"-->
+<!--                android:id="@+id/poster1"-->
+<!--                android:layout_width="155dp"-->
+<!--                android:layout_height="100dp"-->
+<!--                android:scaleType="fitXY"-->
+<!--                android:src="@drawable/venomposter"/>-->
+
+<!--        </LinearLayout>-->
+
 
 
     </androidx.cardview.widget.CardView>

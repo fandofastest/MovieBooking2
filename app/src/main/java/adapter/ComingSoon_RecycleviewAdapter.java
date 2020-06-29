@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
-import creativeuiux.moviebooking2.MovieInfoActivity;
+import creativeuiux.moviebooking2.PlayerActivity;
 import creativeuiux.moviebooking2.R;
 import modalclass.CoomingSoonModalClass;
 
@@ -38,7 +38,7 @@ public class ComingSoon_RecycleviewAdapter extends RecyclerView.Adapter<ComingSo
             @Override
             public void onClick(View v) {
 
-                Intent i = new Intent(context,MovieInfoActivity.class);
+                Intent i = new Intent(context, PlayerActivity.class);
                 context.startActivity(i);
 
             }

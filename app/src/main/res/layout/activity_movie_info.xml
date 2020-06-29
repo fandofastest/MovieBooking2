@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MovieInfoActivity">
+    tools:context=".PlayerActivity">
 
 
 
@@ -92,6 +92,7 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
+                            android:id="@+id/judul"
                             android:lineSpacingExtra="-13.3sp"
                             android:text="CREED II (U/A)"
                             android:textColor="#263238"
@@ -126,15 +127,10 @@
                         android:orientation="horizontal">
 
 
-                        <customfonts.MyTextView_PTSans_Regular
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:lineSpacingExtra="-8.7sp"
-                            android:text="Hindi, English"
-                            android:textColor="#9d9d9d"
-                            android:textSize="12.7sp" />
+
 
                         <customfonts.MyTextView_PTSans_Regular
+                            android:id="@+id/lang"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
@@ -159,20 +155,11 @@
                             android:gravity="center"
                             android:lineSpacingExtra="-7.7sp"
                             android:text="Drama"
+                            android:id="@+id/cat"
+
                             android:textColor="#ffffff"
                             android:textSize="11.7sp" />
 
-
-                        <customfonts.MyTextView_PTSans_Regular
-                            android:layout_width="64dp"
-                            android:layout_height="23dp"
-                            android:layout_marginLeft="10dp"
-                            android:background="@drawable/gradient_roundshape"
-                            android:gravity="center"
-                            android:lineSpacingExtra="-7.7sp"
-                            android:text="Sport"
-                            android:textColor="#ffffff"
-                            android:textSize="11.7sp" />
 
 
                     </LinearLayout>
