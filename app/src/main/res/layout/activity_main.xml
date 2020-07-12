@@ -6,39 +6,33 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity">
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:orientation="horizontal"
         android:paddingBottom="30dp">
-
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="104dp"
             android:background="@drawable/curve_shape" />
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="41.3dp"
             android:layout_marginRight="17dp">
-
-
-            <ImageView
-                android:layout_width="23.6dp"
-                android:layout_height="17.7dp"
-                android:src="@drawable/menu" />
-
-            <ImageView
-                android:layout_width="18.7dp"
-                android:layout_height="21dp"
-                android:layout_alignParentRight="true"
-                android:src="@drawable/bell" />
-
-
         </RelativeLayout>
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searcview"
+            android:layout_width="350dp"
+            android:layout_height="35dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="50dp"
+            android:elevation="4dp"
+            android:background="@drawable/roundshape"
+            android:gravity="right"
+            android:orientation="horizontal"
+           />
 
         <LinearLayout
             android:layout_width="140dp"
@@ -49,8 +43,6 @@
             android:background="@drawable/roundshape"
             android:gravity="right"
             android:orientation="horizontal">
-
-
             <Spinner
                 android:id="@+id/sp_city"
                 android:layout_width="match_parent"
@@ -58,37 +50,28 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="17dp"
                 android:background="@drawable/custom_spinner">
-
             </Spinner>
-
         </LinearLayout>
-
     </FrameLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginBottom="30dp">
-
-
-
                 <customfonts.MyTextView_PTSans_Bold
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:lineSpacingExtra="-11sp"
-                    android:text="Now in theaters"
+                    android:text="TV Channels"
                     android:textAllCaps="true"
                     android:layout_marginLeft="17dp"
                     android:textColor="#263238"
@@ -110,11 +93,6 @@
                     android:layout_height="wrap_content">
 
                 </androidx.recyclerview.widget.RecyclerView>
-
-
-
-
-
 
 
             </LinearLayout>

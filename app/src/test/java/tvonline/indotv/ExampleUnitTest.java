@@ -1,4 +1,4 @@
-package creativeuiux.moviebooking2;
+package tvonline.indotv;
 
 import org.junit.Test;
 

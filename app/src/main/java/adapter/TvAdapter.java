@@ -2,6 +2,7 @@ package adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,17 +14,29 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.List;
-import creativeuiux.moviebooking2.PlayerActivity;
-import creativeuiux.moviebooking2.R;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import tvonline.indotv.PlayerActivity;
+import tvonline.indotv.R;
 import modalclass.TvModel;
+
+import static tvonline.indotv.SplashActivity.admobappid;
+import static tvonline.indotv.SplashActivity.interadmob;
 
 
 public class TvAdapter extends RecyclerView.Adapter<TvAdapter.MyViewHolder> {
 
     Context context;
     private List<TvModel> listtv;
+    SweetAlertDialog pDialog;
+
+    InterstitialAd mInterstitialAd;
 
 
     public TvAdapter(Context mainActivityContacts, List<TvModel> listtv) {
@@ -36,6 +49,10 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.MyViewHolder> {
         final View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_thaters, parent, false);
 
+        pDialog = new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE);
+        pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
+        pDialog.setTitleText("Loading");
+        pDialog.setCancelable(false);
 
 
         return new MyViewHolder(itemView);
@@ -50,7 +67,7 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.MyViewHolder> {
         Glide.with(context)
                 .load(modalClass.getPoster())
                 .centerCrop()
-                .placeholder(R.drawable.andhadhun)
+                .placeholder(R.drawable.tv)
                 .into(holder.poster_image);
         holder.poster_name.setText(modalClass.getNama());
         holder.language.setText(modalClass.getLanguage());
@@ -66,7 +83,10 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.MyViewHolder> {
                 i.putExtra("url",tvModel.getUrl());
                 i.putExtra("lang",tvModel.getLanguage());
                 i.putExtra("cat",tvModel.getCat());
-                context.startActivity(i);
+
+                interadmobload(i);
+
+
 
             }
         });
@@ -104,4 +124,57 @@ public class TvAdapter extends RecyclerView.Adapter<TvAdapter.MyViewHolder> {
         }
 
     }
+
+    public  void interadmobload(Intent intent){
+        pDialog.show();
+        MobileAds.initialize(context,
+                admobappid);
+        mInterstitialAd = new com.google.android.gms.ads.InterstitialAd(context);
+        mInterstitialAd.setAdUnitId(interadmob);
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        mInterstitialAd.setAdListener(new AdListener(){
+            @Override
+            public void onAdLoaded() {
+                mInterstitialAd.show();
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                pDialog.hide();
+                context.startActivity(intent);
+
+
+                // Code to be executed when an ad request fails.
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+            }
+
+            @Override
+            public void onAdClicked() {
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                pDialog.hide();
+                context.startActivity(intent);
+
+
+                // Code to be executed when the interstitial ad is closed.
+            }
+        });
+
+
+    }
+
+
 }

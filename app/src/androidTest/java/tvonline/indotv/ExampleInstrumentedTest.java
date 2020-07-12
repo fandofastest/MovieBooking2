@@ -1,4 +1,4 @@
-package creativeuiux.moviebooking2;
+package tvonline.indotv;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
