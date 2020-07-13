@@ -28,10 +28,6 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
-import java.util.ArrayList;
-
-import modalclass.CastModalClass;
-
 public class PlayerActivity extends AppCompatActivity {
 
     LinearLayout admoblinear;
@@ -56,7 +52,6 @@ public class PlayerActivity extends AppCompatActivity {
     private long playbackPosition = 0;
 
 
-    private ArrayList<CastModalClass> castArrayList;
 
 
     private PlayerView playerView;

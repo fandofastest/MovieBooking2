@@ -29,6 +29,7 @@ import java.util.List;
 
 import adapter.TvAdapter;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import guy4444.smartrate.SmartRate;
 import modalclass.TvModel;
 
 public class MainActivity extends AppCompatActivity {
@@ -164,6 +165,30 @@ public class MainActivity extends AppCompatActivity {
 
 
         Volley.newRequestQueue(getApplicationContext()).add(jsonObjectRequest);
+
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        SmartRate.Rate(MainActivity.this
+                , "Rate Us"
+                , "Tell others what you think about this app"
+                , "Continue"
+                , "Please take a moment and rate us on Google Play"
+                , "click here"
+                , "Cancel"
+                , "Thanks for the feedback"
+                , Color.parseColor("#FB4093")
+                , 4
+                , new SmartRate.CallBack_UserRating() {
+                    @Override
+                    public void userRating(int rating) {
+                        // Do something
+                        // maybe from now disable this button
+                    }
+                }
+        );
 
 
     }

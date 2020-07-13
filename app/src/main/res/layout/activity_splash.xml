@@ -3,14 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBgSplash"
+    android:background="@drawable/splash"
     android:orientation="vertical"
     android:weightSum="1"
     tools:context=".MainActivity">
     <LinearLayout
-        android:background="@color/colorBgSplash"
         android:layout_width="match_parent"
-        android:layout_weight="0.8"
+        android:layout_weight="0.85"
         android:layout_height="0dp" />
 
     <Button
@@ -18,12 +17,12 @@
         android:layout_width="200dp"
         android:layout_height="35dp"
         android:text="START"
-        android:visibility="gone"
+        android:textColor="@color/blue_btn_bg_color"
         android:textStyle="bold"
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="50dp"
         android:elevation="4dp"
-        android:background="@drawable/roundshape"
+        android:background="@drawable/roundhsapesplash"
         android:orientation="horizontal"
         />
 
