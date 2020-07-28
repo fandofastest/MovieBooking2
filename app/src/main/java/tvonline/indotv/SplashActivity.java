@@ -96,6 +96,8 @@ public class SplashActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                System.out.println(error);
+                System.out.println(url);
 
             }
         });
